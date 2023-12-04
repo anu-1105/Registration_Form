@@ -16,109 +16,183 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <style>
+      body 
+      {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(45deg, #db34c5, #59b68c);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s infinite linear;
+        overflow: hidden;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .background-circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        animation: scaleUp 8s infinite alternate;
+      }
+
+      .circle:nth-child(1) {
+        width: 50px;
+        height: 50px;
+        top: 10%;
+        left: 20%;
+      }
+
+      .circle:nth-child(2) {
+        width: 80px;
+        height: 80px;
+        top: 30%;
+        left: 70%;
+      }
+
+      .circle:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        top: 60%;
+        left: 10%;
+      }
+
+      .circle:nth-child(4) {
+        width: 100px;
+        height: 100px;
+        top: 80%;
+        left: 10%;
+      }
+
+      
+      .circle:nth-child(5) {
+        width: 100px;
+        height: 100px;
+        top: 80%;
+        left: 90%;
+      }
+
+      #card {
+        width: 70vh;
+        margin: 50px auto;
+        text-align: center;
+        position: relative;
+        background: rgba(218, 218, 64, 0.8);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out;
+        z-index: 1;
+      }
+
+      .form-outline > input {
+        background-color: #ffffff77;
+        animation: fadeInUp 1s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
+      .form-outline > input:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      button {
+        height: 10vh;
+        width: 64vh;
+        background-color: #5d3fff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        animation: fadeInUp 1s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #3498db;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleUp {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
+    </style>
     <title>Registration Form</title>
   </head>
 
-  <body class="background-radial-gradient">
-    <!-- <img src="pages/registration.jpeg"> -->
-    <style>
-      .background-radial-gradient {
-      background-color: hsl(213, 63%, 53%);
-       /* background-color: linear-gradient(to bottom, #0066ff 0%, #ff99cc 100%); */
-        /* background-image: radial-gradient(
-            650px circle at 0% 0%,
-            hsl(60, 63%, 55%) 15%,
-            hsl(50, 43%, 42%) 35%,
-            hsl(67, 65%, 22%) 75%,
-            hsl(57, 88%, 10%) 80%,
-            transparent 100%
-          ),
-          radial-gradient(
-            1250px circle at 100% 100%,
-            hsl(217, 18%, 50%) 15%,
-            hsl(218, 41%, 30%) 35%,
-            hsl(220, 54%, 16%) 75%,
-            hsl(218, 76%, 13%) 80%,
-            transparent 100%
-          );
-      } */
-    }
+  <body>
+    <div class="background-circle">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <div class="container">
+      <div class="card animate_animated animate_fadeInUp" id="card">
+        <h2 class="fw-bold mb-4">Registration Form</h2>
 
-      /* #radius-shape-1 {
-        height: 220px;
-        width: 220px;
-        top: 110px;
-        left: 130px;
-        background: radial-gradient(#da75a2, #ff1f80);
-        overflow: hidden;
-      }
+        <form method="post" action="/register" style="text-align: left">
+          <div class="form-outline mb-4 animate_animated animate_fadeInUp">
+            <label class="form-label" for="form3Example1"><h4>Name</h4></label>
+            <input type="text" id="form3Example1" name="name" class="form-control" />
+          </div>
 
-      #radius-shape-2 {
-        border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-        bottom: 30px;
-        right: 180px;
-        width: 200px;
-        height: 300px;
-        background: radial-gradient(#d53da0, #ff1fff);
-        overflow: hidden;
-      } */
+          <div class="form-outline mb-4 animate_animated animate_fadeInUp">
+            <label class="form-label" for="form3Example3"
+              ><h4>Email address</h4></label
+            >
+            <input type="email" id="form3Example3" name="email" class="form-control" />
+          </div>
 
-      #card {
-        margin-top: 100px;
-        top: 7%;
-        right: 34%;
-        width: 450px;
-        margin: 100px auto;
-        text-align: center;
-        position: absolute;
-        background: hsl(312, 31%, 67%);
-        backdrop-filter: blur(30px);
-      }
-      .form-outline > input{
-        background-color: rgba(255, 255, 255, 0.467);
-      }
-    </style>
+          <div class="form-outline mb-4 animate_animated animate_fadeInUp">
+            <label class="form-label" for="form3Example4"><h4>Password</h4></label>
+            <input type="password" id="form3Example4" name="password" class="form-control" />
+          </div>
 
-    <section class="text-center">
-      <div
-        id="radius-shape-1"
-        class="position-absolute rounded-circle shadow-5-strong"
-      ></div>
-      <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-      <div class="card mx-9 lg-12 mx-md-5 shadow-5-strong" id="card">
-        <div class="card-body px-md-5 align-left">
-          <h2 class="fw-bold mb-5">Registration Form</h2>
-
-
-          
-          <form method="post" action="/register" style="text-align: left">
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example1"><h4>Name</h4></label>
-              <input type="text" id="form3Example1" name="name" class="form-control" />
-            </div>
-
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example3"
-                ><h4>Email address</h4></label
-              >
-              <input type="email" id="form3Example3"  name="email" class="form-control" />
-            </div>
-
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example4"><h4>Password</h4></label>
-              <input type="password" id="form3Example4"  name="password" class="form-control" />
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block mb-4">
-              Register
-            </button>
-          </form>
-
-
-        
-        </div>
+          <button type="submit" class="btn btn-primary btn-block mb-4 animate_animated animate_fadeInUp">
+            Register
+          </button>
+        </form>
       </div>
-    </section>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
